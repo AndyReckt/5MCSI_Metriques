@@ -27,10 +27,8 @@
       vAxis: {
         title: 'Température (°C)'
       },
-      curveType: 'function',
-      legend: { position: 'bottom' }
     };
-    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
     chart.draw(dataTable, options);
   }
   // Récupération de données depuis notre API /tawarano/
