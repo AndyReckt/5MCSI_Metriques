@@ -44,7 +44,7 @@ def extract_minutes(date_string):
 
 @app.route("/commits/")
 def commits():
-    render_template("commits.html")
+    return render_template("commits.html")
 
 if __name__ == "__main__":
   app.run(debug=True)
