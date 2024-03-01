@@ -1,0 +1,63 @@
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Metrique</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body>
+    <div id="chart_div"></div>
+    <script>
+      google.charts.load('current', { packages: ['corechart'] });
+      google.charts.setOnLoadCallback(drawBackgroundColor);
+     function drawBackgroundColor() {
+    function drawChart(data) {
+    // Convertir les données récupérées en un tableau utilisable par Google Charts
+    var dataTable = new google.visualization.DataTable();
+    dataTable.addColumn('number', 'Minute');
+    dataTable.addColumn('number', 'Commits');
+    data.results.forEach(entry => {
+      var date = new Date(entry.Jour * 1000);
+      dataTable.addRow([date.toLocaleDateString(), entry.temp]);
+    });
+    // Configurer les options du graphique en ligne
+    var options = {
+      title: 'Commits par minute',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
+    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    chart.draw(dataTable, options);
+  }
+  // Récupération de données depuis notre API /tawarano/
+  fetch('https://api.github.com/repos/OpenRSI/5MCSI_Metriques/commits')
+    .then(response => response.json())
+    .then(data => {
+      
+      x = {}
+
+      data.forEach(commit => {
+        fetch("/extract-minutes/" + commit.author.date)
+          .then(response => response.json())
+          .then(date => {
+            x[data.minutes] = x[data.minutes] ? x[data.minutes] + 1 : 1;
+          })
+      })
+
+      data = {
+        results: []
+      }
+
+      for (var key in x) {
+        data.results.push({
+          Minute: key,
+          Commits: x[key]
+        })
+      }
+
+      drawChart(data.results);
+    })
+}
+    </script>
+  </body>
+</html>
