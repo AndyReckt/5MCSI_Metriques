@@ -40,22 +40,22 @@
         fetch("/extract-minutes/" + commit.author.date)
           .then(response => response.json())
           .then(date => {
-            x[data.minutes] = x[data.minutes] ? x[data.minutes] + 1 : 1;
+            x[date.minutes] = x[date.minutes] ? x[date.minutes] + 1 : 1;
           })
       })
 
-      data = {
+      datax = {
         results: []
       }
 
       for (var key in x) {
-        data.results.push({
+        datax.results.push({
           Minute: key,
           Commits: x[key]
         })
       }
 
-      drawChart(data.results);
+      drawChart(datax.results);
     })
 }
     </script>
