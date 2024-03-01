@@ -17,8 +17,7 @@
     dataTable.addColumn('number', 'Minute');
     dataTable.addColumn('number', 'Commits');
     data.results.forEach(entry => {
-      var date = new Date(entry.Jour * 1000);
-      dataTable.addRow([date.toLocaleDateString(), entry.temp]);
+      dataTable.addRow([entry.Minute, entry.Commits]);
     });
     // Configurer les options du graphique en ligne
     var options = {
@@ -54,7 +53,7 @@
         })
       }
 
-      drawChart(datax.results);
+      drawChart(datax);
     })
 }
     </script>
