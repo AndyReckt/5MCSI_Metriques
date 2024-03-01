@@ -34,26 +34,31 @@
     .then(data => {
       let x = {}
 
+      let datax = {
+        results: []
+      }
+
+      let xy = 0;
       data.forEach(commit => {
         fetch("/extract-minutes/" + commit.commit.author.date)
           .then(response => response.json())
           .then(date => {
             x[date.minutes] = x[date.minutes] ? x[date.minutes] + 1 : 1;
+            xy++;
+
+            if (xy === data.length) {
+              for (var key in x) {
+                datax.results.push({
+                  Minute: key,
+                  Commits: x[key]
+                })
+              }
+
+              drawChart(datax);
+            }
           })
       })
 
-      let datax = {
-        results: []
-      }
-
-      for (var key in x) {
-        datax.results.push({
-          Minute: key,
-          Commits: x[key]
-        })
-      }
-
-      drawChart(datax);
     })
 }
     </script>
