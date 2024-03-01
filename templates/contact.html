@@ -8,49 +8,48 @@
     <link rel="stylesheet" type="text/css" href="css/contact.css">
 </head>
 <body>
-    <div className="contactBox">
-        <div className="contact-text-image">
-            <div className="contactImage">
+    <div class="contactBox">
+        <div class="contact-text-image">
+            <div class="contactImage">
                 <img src="https://www.heysigmund.com/wp-content/uploads/When-Someone-You-Love-is-Toxic-How-to-Let-Go-of-Toxic-People-Without-Guilt.jpg"
                  alt="Girl in a jacket" width="500" height="600"
-                 className="w-24 h-24 md:w-64 md:h-auto rounded-full mx-auto">
-                
+                 class="w-24 h-24 md:w-64 md:h-auto rounded-full mx-auto">
             </div>
-            <div className="contactText">
+            <div class="contactText">
                 <h1>Contactez Moi</h1>
                 <p>Besoin de me contacter?</p>
                 <p>Remplissez le formulaire ci-contre avec votre demande.</p>
             </div>
         </div>
-        <div className="contactForm">
-            <form action="mailto:cassoulucien@gmail.com" onSubmit={} method="POST" >
-                <div className="pt-0 mb-3">
+        <div class="contactForm">
+            <form>
+                <div class="pt-0 mb-3">
                     Votre nom
                     <input type="text" placeholder="ex: Lucien Cassou" name="name" 
-                        className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm
+                        class="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm
                         text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
                         required/>
                 </div>
     
-                <div className="pt-0 mb-3">
+                <div class="pt-0 mb-3">
                     Votre email
                     <input type="email" placeholder="ex: mail@gmail.com" name="email"
-                        className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm
+                        class="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm
                          text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
-                        required/>
+                        required />
                 </div>
     
-                <div className="pt-0 mb-3">
-                Que puis-je faire pour vous ?
-                    <textarea placeholder="Votre Message" name="msgx"
-                        className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm
+                <div class="pt-0 mb-3">
+                    Que puis-je faire pour vous ?
+                    <input type="text" placeholder="Votre Message" name="msgx"
+                        class="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm
                         text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
-                        required/>
+                        required />
                 </div>
     
-                <div className="pt-0 mb-3">
+                <div class="pt-0 mb-3">
                     <button type="submit"
-                        className="active:bg-blue-600 hover:shadow-lg focus:outline-none px-6 py-3 mb-1 mr-1
+                        class="active:bg-blue-600 hover:shadow-lg focus:outline-none px-6 py-3 mb-1 mr-1
                          text-sm font-bold text-white uppercase transition-all duration-150 ease-linear bg-blue-500 rounded shadow outline-none"
                     >
                     Envoyer
