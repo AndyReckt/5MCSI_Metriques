@@ -17,7 +17,7 @@
     dataTable.addColumn('number', 'Minute');
     dataTable.addColumn('number', 'Commits');
     data.results.forEach(entry => {
-      dataTable.addRow([entry.Minute, entry.Commits]);
+      dataTable.addRow([Number(entry.Minute), Number(entry.Commits)]);
     });
     // Configurer les options du graphique en ligne
     var options = {
